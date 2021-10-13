@@ -239,15 +239,15 @@ FORCE:
 # --------------------------------------------------------------------------
 # documentation and man page
 tcc-doc.html: tcc-doc.texi
-	makeinfo --no-split --html --number-sections -o $@ $< || true
+	@#makeinfo --no-split --html --number-sections -o $@ $< || true
 
 tcc.1: tcc-doc.texi
-	$(TOPSRC)/texi2pod.pl $< tcc.pod \
-	&& pod2man --section=1 --center="Tiny C Compiler" --release="$(VERSION)" tcc.pod >tmp.1 \
-	&& mv tmp.1 $@ || rm -f tmp.1
+	@#$(TOPSRC)/texi2pod.pl $< tcc.pod \
+	@#&& pod2man --section=1 --center="Tiny C Compiler" --release="$(VERSION)" tcc.pod >tmp.1 \
+	@#&& mv tmp.1 $@ || rm -f tmp.1
 
 tcc-doc.info: tcc-doc.texi
-	makeinfo $< || true
+	@#makeinfo $< || true
 
 # --------------------------------------------------------------------------
 # install
